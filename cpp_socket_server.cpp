@@ -71,7 +71,7 @@ int main( int argc, char *argv[] )
 		/* 傳送資料給客戶端 */
 		while(true){
 			sleep(2);	// 2 秒延遲
-			n = write(newsockfd,"I got your message!!!!!",18);
+			n = write(newsockfd,"I got your message!!!!!",18+5);		// 18:文字, 5:! 
 			if (n < 0){
 				perror("ERROR writing to socket");
 				exit(1);
