@@ -8,7 +8,7 @@ import java.io.*;
 	編譯：javac -cp "C:\Program Files (x86)\Java\jre7\lib\plugin.jar" socket_server_udp.java
 */
 
-public class socket_client extends Applet {
+public class socket_server_udp extends Applet {
 	public void init(){
 		this.runServer();
 	}
