@@ -10,7 +10,7 @@ sock.listen(10)
 def echo(con,addr):
 	while True:
 		a=time.ctime();
-		con.send(a);
+		con.send('Hello From Python TCP:'+a);
 		print a
 		time.sleep(2)
 
