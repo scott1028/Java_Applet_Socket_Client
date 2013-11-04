@@ -11,7 +11,7 @@ import java.io.*;
 public class socket_client extends Applet {
 	public void init(){
 		try{
-			Socket client = new Socket("127.0.0.1", 10080);
+			Socket client = new Socket("127.0.0.1", 15000);
 			System.out.println("Just connected to "+ client.getRemoteSocketAddress());
 
 			InputStream inFromServer = client.getInputStream();

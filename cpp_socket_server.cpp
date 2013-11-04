@@ -8,10 +8,12 @@
 #include <string.h>		// for bzero()
 #include <iostream>		// for read()
 #include <fstream>		// for read()
+#include <unistd.h>		// for sleep()
 
 /*
 	For GCC3
 	C++ 版的 Socket Server
+	可搭配 Java Applet Socket Client 使用
 */
 
 int main( int argc, char *argv[] )
@@ -57,20 +59,23 @@ int main( int argc, char *argv[] )
 			exit(1);
 		}
 
-		/* If connection is established then start communicating */
-		bzero(buffer,256);
-		n = read( newsockfd,buffer,255 );
-		if (n < 0){
-			perror("ERROR reading from socket");
-			exit(1);
-		}
-		printf("Here is the message: %s\n",buffer);
+		/* 如果不打算讀取資料，就把這邊註解 */
+		// bzero(buffer,256);
+		// n = read( newsockfd,buffer,255 );
+		// if (n < 0){
+		// 	perror("ERROR reading from socket");
+		// 	exit(1);
+		// }
+		// printf("Here is the message: %s\n",buffer);
 
-		/* Write a response to the client */
-		n = write(newsockfd,"I got your message",18);
-		if (n < 0){
-			perror("ERROR writing to socket");
-			exit(1);
+		/* 傳送資料給客戶端 */
+		while(true){
+			sleep(2);	// 2 秒延遲
+			n = write(newsockfd,"I got your message!!!!!",18);
+			if (n < 0){
+				perror("ERROR writing to socket");
+				exit(1);
+			}
 		}
 
 		// 關閉 Client 連線
