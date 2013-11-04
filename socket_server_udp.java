@@ -5,7 +5,7 @@ import java.net.*;
 import java.io.*;
 
 /*
-	編譯：javac -cp "C:\Program Files (x86)\Java\jre7\lib\plugin.jar" socket_client.java
+	編譯：javac -cp "C:\Program Files (x86)\Java\jre7\lib\plugin.jar" socket_server_udp.java
 */
 
 public class socket_client extends Applet {
