@@ -41,33 +41,40 @@ int main( int argc, char *argv[] )
 		 exit(1);
 	}
 
-	/* Now start listening for the clients, here process will
-	* go in sleep mode and will wait for the incoming connection
+	/* 
+	Now start listening for the clients, here process will
+	go in sleep mode and will wait for the incoming connection
 	*/
 	listen(sockfd,5);
 	clilen = sizeof(cli_addr);
 
-	/* Accept actual connection from the client */
-	newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
-	if (newsockfd < 0){
-		perror("ERROR on accept");
-		exit(1);
-	}
+	// 進入等待連線 For-Loop
+	while(true){
+		/* Accept actual connection from the client */
+		newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
+		if (newsockfd < 0){
+			perror("ERROR on accept");
+			exit(1);
+		}
 
-	/* If connection is established then start communicating */
-	bzero(buffer,256);
-	n = read( newsockfd,buffer,255 );
-	if (n < 0){
-		perror("ERROR reading from socket");
-		exit(1);
-	}
-	printf("Here is the message: %s\n",buffer);
+		/* If connection is established then start communicating */
+		bzero(buffer,256);
+		n = read( newsockfd,buffer,255 );
+		if (n < 0){
+			perror("ERROR reading from socket");
+			exit(1);
+		}
+		printf("Here is the message: %s\n",buffer);
 
-	/* Write a response to the client */
-	n = write(newsockfd,"I got your message",18);
-	if (n < 0){
-		perror("ERROR writing to socket");
-		exit(1);
+		/* Write a response to the client */
+		n = write(newsockfd,"I got your message",18);
+		if (n < 0){
+			perror("ERROR writing to socket");
+			exit(1);
+		}
+
+		// 關閉 Client 連線
+		close(newsockfd);
 	}
 	return 0; 
 }
