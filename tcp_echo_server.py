@@ -4,7 +4,7 @@
 import socket,re,sys,threading,time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-sock.bind(("", 5000))  
+sock.bind(("127.0.0.1", 5000))  
 sock.listen(10)
 
 def echo(con,addr):
