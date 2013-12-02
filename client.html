@@ -6,14 +6,21 @@
 </HEAD>
 <BODY>
 <P>Here it is: 
-	<APPLET name="hello" code="socket_client.class" WIDTH="200" HEIGHT="40"></APPLET>
+	<!--使用 jar-->
+	<!--APPLET name="hello" code="socket_client.class" WIDTH="200" HEIGHT="40" ARCHIVE="myApp.jar"></APPLET-->
+	<!--未使用 jar-->
+		<!--APPLET name="hello" code="socket_client.class" WIDTH="200" HEIGHT="40"></APPLET-->
 	<script>
 		var dosome=function(a){
 			console.log('call by applet:'+a);
 		};
 	</script>
-
-	<APPLET name="hello" code="socket_server_udp.class" WIDTH="200" HEIGHT="40"></APPLET>
+	<!--使用 jar-->
+		<APPLET name="hello" code="socket_server_udp.class" WIDTH="200" HEIGHT="40" ARCHIVE="myApp.jar">
+			<param name="permissions" value="all-permissions" />
+		</APPLET>
+	<!--未使用 jar-->
+		<!--APPLET name="hello" code="socket_server_udp.class" WIDTH="200" HEIGHT="40"></APPLET-->
 </P>
 </BODY>
 </HTML>
