@@ -40,7 +40,7 @@ public class socket_server_udp extends Applet {
 
 		// 綁定 IP 的寫法, UPD 似乎 IP 指定後 Sender 傳這個IP
 		DatagramSocket socket = new DatagramSocket(null);
-		InetSocketAddress address = new InetSocketAddress("192.168.1.170", 5001);
+		InetSocketAddress address = new InetSocketAddress("127.0.0.1", 5001);
 		socket.bind(address);
 
 		// 持續接收
