@@ -13,6 +13,6 @@
 	jar -cvfm myApp.jar MANIFEST.MF socket_server_udp.class socket_client.class
 
 三行指令，結束後KeyStore檔案會存在於該目錄內，不用包道 Jar 裡面(如果看見亂碼就用 Cygwin)：
-	keytool -genkey -keystore javaClassBackUp/yourKeyStoreFileName -alias me
-	keytool -selfcert -keystore javaClassBackUp/yourKeyStoreFileName -alias me
-	jarsigner -keystore javaClassBackUp/yourKeyStoreFileName myApp.jar me
+	keytool -genkey -keystore javaClassBackUp/yourKeyStoreFileName -alias myCertified -validity 365			# 365 是你設定這個簽證有效的日期可以打很大
+	keytool -selfcert -keystore javaClassBackUp/yourKeyStoreFileName -alias myCertified
+	jarsigner -keystore javaClassBackUp/yourKeyStoreFileName myApp.jar myCertified
