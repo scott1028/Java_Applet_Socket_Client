@@ -3,7 +3,7 @@
 import socket,time
 
 server = socket.socket( socket.AF_INET, socket.SOCK_DGRAM )
-server.bind(('192.168.1.170',5001))
+server.bind(('127.0.0.1',5001))
 
 while True:
 		data, addr=server.recvfrom(500)
