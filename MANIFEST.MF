@@ -1,2 +1,3 @@
 Main-Class: socket_server_udp
+Permissions: all-permissions
 

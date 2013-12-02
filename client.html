@@ -16,7 +16,10 @@
 		};
 	</script>
 	<!--使用 jar-->
-		<APPLET name="hello" code="socket_server_udp.class" WIDTH="200" HEIGHT="40" ARCHIVE="myApp.jar"></APPLET>
+		<APPLET name="hello" code="socket_server_udp.class" WIDTH="200" HEIGHT="40" ARCHIVE="myApp.jar">
+			<!-- 要寫這一行如果授權失敗網頁上才會有訊息 -->
+			<param name="permissions" value="all-permissions" />
+		</APPLET>
 	<!--未使用 jar-->
 		<!--APPLET name="hello" code="socket_server_udp.class" WIDTH="200" HEIGHT="40"></APPLET-->
 </P>
