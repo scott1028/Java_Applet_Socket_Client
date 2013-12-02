@@ -1,0 +1,18 @@
+專案結構
+	javaClassBackUp(目錄)
+		[yourKeyStoreFileName] 	<-- 之後產生
+
+製作 Jar 檔案清單文件：
+	建立一個文件 MANIFEST.MF，其內容如下：
+		Main-Class: socket_server_udp
+		
+		
+		(要加兩行空行)
+	
+打包 Jar
+	jar -cvfm myApp.jar MANIFEST.MF socket_server_udp.class socket_client.class
+
+三行指令，結束後KeyStore檔案會存在於該目錄內，不用包道 Jar 裡面(如果看見亂碼就用 Cygwin)：
+	keytool -genkey -keystore javaClassBackUp/yourKeyStoreFileName -alias me
+	keytool -selfcert -keystore javaClassBackUp/yourKeyStoreFileName -alias me
+	jarsigner -keystore javaClassBackUp/yourKeyStoreFileName myApp.jar me
